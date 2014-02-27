@@ -1,0 +1,10 @@
+{
+  "name": "Kickstarter",
+  "version": "0.0.0",
+  "description": "Another web-developer’s starter kit.",
+  "author": "Leonard Kinday <leonard@kinday.ru>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:kinday/kickstarter.git"
+  }
+}
