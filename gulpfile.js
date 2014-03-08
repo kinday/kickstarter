@@ -5,16 +5,23 @@ var gulp = require('gulp'),
     csso = require('gulp-csso'),
     lint = require('gulp-jshint'),
     ugly = require('gulp-uglify'),
-    imgo = require('gulp-imagemin');
+    imgo = require('gulp-imagemin')
+    srcs = {
+      html: ['src/**/*.jade', '!src/**/*.inc.jade'],
+      styl: ['src/**/*.styl', '!src/**/*.inc.styl'],
+      js: 'src/**/*.js',
+      img: ['src/**/*.{gif,jpg,png}', '!src/**/uri-*.{gif,jpg,png}'],
+      pass: ['src/**/*.{php,svg}', 'src/**/.htaccess']
+      };
 
 gulp.task('html', function() {
-  return gulp.src(['src/**/*.jade', '!src/**/*.inc.jade'])
+  return gulp.src(srcs.html)
     .pipe(jade())
     .pipe(gulp.dest('out'));
   });
 
 gulp.task('css', function() {
-  return gulp.src(['src/**/*.styl', '!src/**/*.inc.styl'])
+  return gulp.src(srcs.styl)
     .pipe(styl({urlFunc: ['uri']}))
     .pipe(apfx('last 2 version', 'ie 8', 'ie 9'))
     .pipe(csso())
@@ -22,7 +29,7 @@ gulp.task('css', function() {
   });
 
 gulp.task('js', function() {
-  return gulp.src('src/**/*.js')
+  return gulp.src(srcs.js)
     .pipe(lint())
     .pipe(lint.reporter('default'))
     .pipe(ugly())
@@ -30,22 +37,22 @@ gulp.task('js', function() {
   });
 
 gulp.task('img', function() {
-  return gulp.src(['src/**/*.{gif,jpg,png}', '!src/**/uri-*.{gif,jpg,png}'])
+  return gulp.src(srcs.img)
     .pipe(imgo())
     .pipe(gulp.dest('out'));
   });
 
 gulp.task('pass', function() {
-  return gulp.src(['src/**/*.{php,svg}', 'src/**/.htaccess'])
+  return gulp.src(srcs.pass)
     .pipe(gulp.dest('out'));
   });
 
 gulp.task('watch', function() {
-  gulp.watch('src/**/*.jade', ['html']);
-  gulp.watch('src/**/*.styl', ['css']);
-  gulp.watch('src/**/*.js', ['js']);
-  gulp.watch('src/**/*.{gif,jpg,png}', ['img']);
-  gulp.watch('src/**/*.{php,svg}', ['pass']);
+  gulp.watch(srcs.html, ['html']);
+  gulp.watch(srcs.styl, ['css']);
+  gulp.watch(srcs.js, ['js']);
+  gulp.watch(srcs.img, ['img']);
+  gulp.watch(srcs.pass, ['pass']);
   });
 
 gulp.task('default', ['html', 'css', 'js', 'img', 'pass', 'watch']);
