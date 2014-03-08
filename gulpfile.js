@@ -36,7 +36,7 @@ gulp.task('img', function() {
   });
 
 gulp.task('pass', function() {
-  return gulp.src('src/**/*.{php,svg}')
+  return gulp.src(['src/**/*.{php,svg}', 'src/**/.htaccess'])
     .pipe(gulp.dest('out'));
   });
 
