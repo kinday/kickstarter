@@ -1,10 +1,18 @@
 <?php
 
 // get the filename or use default
-$file = isset($_GET['url']) ? $_GET['url'] : 'index.html';
+$file = isset($_GET['url']) ? rtrim($_GET['url'], '/') : 'index.html';
 
-// directories workaround
-$file = is_file($file) ? $file : (is_file($file . 'index.html') ? $file . 'index.html' : $file . '/index.html');
+// test if directory or send 404 header
+if(!is_file($file)) {
+  if(is_dir($file)) {
+    $file .= '/index.html';
+    }
+  else {
+    header( "HTTP/1.0 404 Not Found" );
+    exit;
+    }
+  }
 
 // set the timezone
 date_default_timezone_set('Europe/Minsk');
