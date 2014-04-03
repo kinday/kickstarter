@@ -19,12 +19,12 @@ var gulp = require('gulp'),
     when = require('gulp-if'),
 
     srcs = {
-      html: ['src/**/*.jade', '!src/**/*.inc.jade'],
+      html: ['src/**/*.jade', '!src/**/*.inc.jade', '!src/**/*.layout.jade'],
       css: ['src/**/*.styl', '!src/**/*.inc.styl'],
       js: ['src/js/**/*.js', '!src/js/**/jquery*.js'],
-      jq: 'src/js/**/jquery.*.js',
+      jq: ['src/js/jquery-*.js', 'src/js/**/jquery.*.js'],
       img: ['src/**/*.{gif,jpg,png}', '!src/**/*.inc.{gif,jpg,png}'],
-      pass: ['src/**/*.{html,css,php,svg,woff}', 'src/**/.htaccess']
+      pass: ['src/**/*.{html,css,php,svg,woff}']
       };
 
 gulp.task('html', function() {
@@ -49,8 +49,8 @@ gulp.task('jq', function() {
     .pipe(lint())
     .pipe(lint.reporter('default'))
     .pipe(ugly({outSourceMap: true}))
-    .pipe(cnct('jquery.plugins.js'))
-    .pipe(gulp.dest('out/jquery'))
+    .pipe(cnct('jquery.js'))
+    .pipe(gulp.dest('out/js'))
     .pipe(lvrl(srvr));
   });
 
