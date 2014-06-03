@@ -8,20 +8,16 @@
     "url": "git@github.com:kinday/kickstarter.git"
   },
   "devDependencies": {
-    "gulp": "~3.5.2",
-    "gulp-util": "~2.2.14",
-    "gulp-jade": "~0.4.2",
-    "gulp-stylus": "0.0.13",
-    "gulp-csso": "~0.2.6",
-    "gulp-autoprefixer": "0.0.6",
-    "gulp-imagemin": "~0.1.5",
-    "gulp-uglify": "~0.2.1",
-    "gulp-jshint": "~1.5.0",
-    "gulp-if": "0.0.5",
-    "gulp-embedlr": "~0.5.2",
-    "gulp-livereload": "~1.2.0",
-    "gulp-beml": "~0.1.1",
-    "gulp-concat": "~2.2.0",
-    "tiny-lr": "0.0.5"
+    "gulp": "",
+    "gulp-util": "",
+    "gulp-jade": "",
+    "gulp-beml": "",
+    "gulp-stylus": "",
+    "gulp-csso": "",
+    "gulp-autoprefixer": "",
+    "gulp-imagemin": "",
+    "gulp-embedlr": "",
+    "gulp-livereload": "",
+    "tiny-lr": ""
   }
 }

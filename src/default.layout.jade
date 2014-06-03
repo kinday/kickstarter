@@ -7,17 +7,15 @@ html
 
     meta(http-equiv = 'X-UA-Compatible', content = 'IE=edge,chrome=1')
 
-    title #{document.title}
+    if document.title
+      title #{document.title}
 
     meta(name = 'viewport', content = 'width=device-width, initial-scale=1')
 
-    meta(name = 'keywords', lang = 'ru', content = '')
-    meta(name = 'description', content = '')
+    meta(name = 'keywords', lang = 'ru', content != document.keywords)
+    meta(name = 'description', content != document.description)
 
-    link(rel = 'stylesheet', href = '/css/screen.css')
+    link(rel = 'stylesheet', href = '/s/screen.css')
 
   body
     block content
-
-    script(src = '/js/jquery.js')
-    script(src = '/js/script.js')
