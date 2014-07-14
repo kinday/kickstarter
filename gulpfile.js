@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
     util = require('gulp-util'),
+    plmb = require('gulp-plumber'),
 
     jade = require('gulp-jade'),
     beml = require('gulp-beml'),
@@ -27,6 +28,7 @@ var gulp = require('gulp'),
 
 gulp.task('html', function() {
   return gulp.src(srcs.html)
+    .pipe(plmb())
     .pipe(jade({pretty: true}))
     .pipe(beml())
     .pipe(emlr({
@@ -38,6 +40,7 @@ gulp.task('html', function() {
 
 gulp.task('css', function() {
   return gulp.src(srcs.css)
+    .pipe(plmb())
     .pipe(styl({urlFunc: ['uri']}))
     .pipe(apfx('last 2 version', 'ie 8', 'ie 9'))
     .pipe(csso())
@@ -47,6 +50,7 @@ gulp.task('css', function() {
 
 gulp.task('coffee', function() {
   return gulp.src(srcs.coffee)
+    .pipe(plmb())
     .pipe(coff())
     .pipe(gulp.dest('out'))
     .pipe(lvrl(srvr));
@@ -60,6 +64,7 @@ gulp.task('js', function() {
 
 gulp.task('img', function() {
   return gulp.src(srcs.img)
+    .pipe(plmb())
     .pipe(imgo())
     .pipe(gulp.dest('out'))
     .pipe(lvrl(srvr));

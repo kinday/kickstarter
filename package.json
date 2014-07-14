@@ -17,6 +17,7 @@
     "gulp-imagemin": "",
     "gulp-jade": "",
     "gulp-livereload": "",
+    "gulp-plumber": "",
     "gulp-stylus": "",
     "gulp-util": "",
     "tiny-lr": ""
