@@ -9,15 +9,16 @@
   },
   "devDependencies": {
     "gulp": "",
-    "gulp-util": "",
-    "gulp-jade": "",
-    "gulp-beml": "",
-    "gulp-stylus": "",
-    "gulp-csso": "",
     "gulp-autoprefixer": "",
-    "gulp-imagemin": "",
+    "gulp-beml": "",
+    "gulp-coffee": "",
+    "gulp-csso": "",
     "gulp-embedlr": "",
+    "gulp-imagemin": "",
+    "gulp-jade": "",
     "gulp-livereload": "",
+    "gulp-stylus": "",
+    "gulp-util": "",
     "tiny-lr": ""
   }
 }

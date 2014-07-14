@@ -8,6 +8,8 @@ var gulp = require('gulp'),
     apfx = require('gulp-autoprefixer'),
     csso = require('gulp-csso'),
 
+    coff = require('gulp-coffee'),
+
     imgo = require('gulp-imagemin'),
 
     lvrl = require('gulp-livereload'),
@@ -45,6 +47,7 @@ gulp.task('css', function() {
 
 gulp.task('coffee', function() {
   return gulp.src(srcs.coffee)
+    .pipe(coff())
     .pipe(gulp.dest('out'))
     .pipe(lvrl(srvr));
   });
